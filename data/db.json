@@ -1,0 +1,176 @@
+{
+  "users": [
+    {
+      "id": "usr_demo_freelancer",
+      "email": "alex@designstudio.com",
+      "name": "Alex Rivera (Designer)",
+      "passwordHash": "c0f50d03756d323aa444b1410a5446daff8199b67d69f1f76747ac939e8331d2208e3ad79c71f6e5cd7382e4c5bfb64a96d0527c01edd153329c1cfa23aa6fae",
+      "salt": "0ace3f5f62ea6ac0202043668c509264",
+      "role": "freelancer",
+      "createdAt": "2026-09-09T07:58:08.541Z"
+    },
+    {
+      "id": "usr_demo_client",
+      "email": "sarah@clientbrand.co",
+      "name": "Sarah Chen (Client)",
+      "passwordHash": "35c8abb5b1123f7835de90cf643b04e339f4027490040271db7d55efe1dd83afc7904db2512e58a031923b349b8229237c7395b5b2d6b8b98039f7c8f9bb3127",
+      "salt": "284a6cdb6a6accb4509ab5d5bd1c04d3",
+      "role": "client",
+      "createdAt": "2026-09-09T07:58:08.582Z"
+    },
+    {
+      "id": "usr_664ebec8938450a6",
+      "email": "detdong725@gmail.com",
+      "name": "DOUNG DET",
+      "passwordHash": "3cd639a3a3ed9d78da8b6d8dcf6d9ab5fb761040bd5cbd34eee84156ee34d8ce6a281f6fe3be00c247e05d9b79e7cd37397de5271de93acfaf385a2b7e616969",
+      "salt": "a6cc5ee9709df7b241155a405d940b6f",
+      "role": "client",
+      "createdAt": "2026-09-16T07:58:08.625Z"
+    },
+    {
+      "id": "usr_17f8242a07bb1848",
+      "email": "john@gmail.com",
+      "name": "John",
+      "passwordHash": "3edf5e841b170a5d0139b894c0daba17128aed7ab2706afd193ae6b59e852d852d5223e771724667a1e8d5d25de53392be3bea07215595efee18919343f3ab71",
+      "salt": "70c36d4b42f137d92fed170fc5260ef6",
+      "role": "client",
+      "createdAt": "2026-09-16T08:03:52.722Z"
+    },
+    {
+      "id": "usr_afd57047900ac4e6",
+      "email": "johnweek@gmail.com",
+      "name": "Jphn",
+      "passwordHash": "46fab616a731446ac7e7ba979fa93162ce6dd224b98fb8963c57326c61c80b4776593d57739ff19e29f72211b750f48c3ddd321d5412cceed5922296b686583c",
+      "salt": "d110add81827e7b73f42ed80c6c21f0f",
+      "role": "client",
+      "createdAt": "2026-09-16T08:08:57.194Z"
+    },
+    {
+      "id": "usr_4afd69282b6044a5",
+      "email": "detdoung570@gmail.com",
+      "name": "Det Doung",
+      "passwordHash": "a2a318b797aec98d522c2f60b270c181fc6f67aa6083a12c7a5c4e790923b2a683296e7335136e9f6b876f74abd1e89ce6f7a6a25a6446e62af20f524f42ae5d",
+      "salt": "6087c32465ea7e72acdace5311d80154",
+      "role": "client",
+      "createdAt": "2026-09-16T08:11:00.479Z"
+    },
+    {
+      "id": "usr_e7e43d3e19e89220",
+      "email": "dara@gmail.com",
+      "name": "Dara",
+      "passwordHash": "a495df65f8bb2f4f6bc0e9cd815a05ad322b79a6f0cef55f2032ffda3a1d54a4bc6530a02250a7c11743a63df5ddcda9090da1705b4cdbbd45fda5bdc560ec2d",
+      "salt": "09725a45568da5da7f13c6d38b365f77",
+      "role": "freelancer",
+      "createdAt": "2026-09-16T08:24:10.025Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "tok_da0bad773542f66f24ad0ac9d8c234b14d2009bd36f3c5ffae1099244a0223dc",
+      "userId": "usr_17f8242a07bb1848",
+      "createdAt": "2026-09-16T08:03:52.724Z",
+      "expiresAt": "2026-10-16T08:03:52.724Z"
+    },
+    {
+      "token": "tok_c508a6901933db7e7c52f313f68ead73a66250f5037537a398651b4d65adcf1a",
+      "userId": "usr_4afd69282b6044a5",
+      "createdAt": "2026-09-16T08:11:00.480Z",
+      "expiresAt": "2026-10-16T08:11:00.480Z"
+    }
+  ],
+  "files": [
+    {
+      "id": "file_brand_guide_01",
+      "userId": "usr_demo_freelancer",
+      "originalName": "Brand_Identity_Guidelines_v2.pdf",
+      "storedName": "file_brand_guide_01-Brand_Identity_Guidelines_v2.pdf",
+      "mimeType": "application/pdf",
+      "size": 132,
+      "category": "document",
+      "tags": [
+        "Brand Assets",
+        "Approved"
+      ],
+      "notes": "Finalized brand colors, typography rules, and logo spacing guidelines for Q4 release.",
+      "uploadedAt": "2026-09-13T07:58:08.582Z",
+      "downloadCount": 3
+    },
+    {
+      "id": "file_ui_mockups_02",
+      "userId": "usr_demo_freelancer",
+      "originalName": "E-Commerce_Checkout_Mockups.png",
+      "storedName": "file_ui_mockups_02-E-Commerce_Checkout_Mockups.png",
+      "mimeType": "image/svg+xml",
+      "size": 427,
+      "category": "image",
+      "tags": [
+        "Mockup",
+        "Draft"
+      ],
+      "notes": "Updated step-by-step cart and payment authorization flow mockup.",
+      "uploadedAt": "2026-09-14T07:58:08.583Z",
+      "downloadCount": 3
+    },
+    {
+      "id": "file_client_assets_03",
+      "userId": "usr_demo_client",
+      "originalName": "High_Res_Product_Photos.zip",
+      "storedName": "file_client_assets_03-High_Res_Product_Photos.zip",
+      "mimeType": "application/zip",
+      "size": 92,
+      "category": "archive",
+      "tags": [
+        "Client Upload",
+        "Raw Assets"
+      ],
+      "notes": "Please find attached the product photos from last weeks studio shoot for the catalog redesign.",
+      "uploadedAt": "2026-09-15T07:58:08.583Z",
+      "downloadCount": 3
+    },
+    {
+      "id": "file_089b88450053a50d",
+      "userId": "usr_afd57047900ac4e6",
+      "originalName": "lg-oled-evo-g6-2026-feature-34-lg-channels-d.webp",
+      "storedName": "1789546143797-590698980-lg-oled-evo-g6-2026-feature-34-lg-channels-d.webp",
+      "mimeType": "image/webp",
+      "size": 86542,
+      "category": "image",
+      "tags": [
+        "Final Assets"
+      ],
+      "notes": "",
+      "uploadedAt": "2026-09-16T08:09:03.807Z",
+      "downloadCount": 0
+    },
+    {
+      "id": "file_828f852341dd8c63",
+      "userId": "usr_afd57047900ac4e6",
+      "originalName": "Algorithms Notes for Professionals.pdf",
+      "storedName": "1789546190506-95384060-Algorithms_Notes_for_Professionals.pdf",
+      "mimeType": "application/pdf",
+      "size": 2801581,
+      "category": "document",
+      "tags": [
+        "Final Assets"
+      ],
+      "notes": "Read Only",
+      "uploadedAt": "2026-09-16T08:09:51.211Z",
+      "downloadCount": 0
+    },
+    {
+      "id": "file_1429d2bf225dba30",
+      "userId": "usr_afd57047900ac4e6",
+      "originalName": "02JXa.jpg",
+      "storedName": "1789546214379-723734166-02JXa.jpg",
+      "mimeType": "image/jpeg",
+      "size": 494369,
+      "category": "image",
+      "tags": [
+        "Final Assets"
+      ],
+      "notes": "",
+      "uploadedAt": "2026-09-16T08:10:14.387Z",
+      "downloadCount": 0
+    }
+  ]
+}

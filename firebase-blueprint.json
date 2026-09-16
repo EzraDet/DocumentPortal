@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information stored upon authentication",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Firebase Auth UID of user"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name of user"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role in portal (freelancer, client, etc.)"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account creation"
+        }
+      },
+      "required": ["id", "email", "name", "role", "createdAt"]
+    },
+    "VaultFile": {
+      "title": "VaultFile",
+      "description": "Metadata for a secure client vault file",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of file"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID"
+        },
+        "originalName": {
+          "type": "string",
+          "description": "Original file name",
+          "maxLength": 255
+        },
+        "storedName": {
+          "type": "string",
+          "description": "Stored file name or reference identifier"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "MIME type of the uploaded file"
+        },
+        "size": {
+          "type": "number",
+          "description": "Size in bytes"
+        },
+        "category": {
+          "type": "string",
+          "description": "File category tag"
+        },
+        "tags": {
+          "type": "array",
+          "description": "List of user-defined tags"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes accompanying the file",
+          "maxLength": 1000
+        },
+        "uploadedAt": {
+          "type": "string",
+          "description": "ISO timestamp of file upload"
+        },
+        "downloadCount": {
+          "type": "number",
+          "description": "Number of times file has been downloaded"
+        }
+      },
+      "required": ["id", "userId", "originalName", "storedName", "mimeType", "size", "category", "uploadedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User account document holding profile data"
+    },
+    "/users/{userId}/files/{fileId}": {
+      "schema": "VaultFile",
+      "description": "Files belonging to a specific user"
+    }
+  }
+}

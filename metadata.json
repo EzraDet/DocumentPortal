@@ -1,0 +1,6 @@
+{
+  "name": "ShoppyVault",
+  "description": "A secure client file portal for freelancers, designers, and clients to upload, manage, and share files.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

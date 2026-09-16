@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny all queries and paths
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUser(data) {
+      return data.id is string && data.id == request.auth.uid &&
+             data.email is string && data.email.size() <= 255 &&
+             data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+             data.role is string && data.role.size() <= 50 &&
+             data.createdAt is string && data.createdAt.size() <= 40;
+    }
+
+    function isValidFile(data, userId) {
+      return data.id is string && isValidId(data.id) &&
+             data.userId is string && data.userId == userId && data.userId == request.auth.uid &&
+             data.originalName is string && data.originalName.size() > 0 && data.originalName.size() <= 255 &&
+             data.storedName is string && data.storedName.size() > 0 && data.storedName.size() <= 255 &&
+             data.mimeType is string && data.mimeType.size() <= 128 &&
+             data.size is number && data.size >= 0 &&
+             data.category is string && data.category.size() <= 50 &&
+             (!('notes' in data) || (data.notes is string && data.notes.size() <= 1000)) &&
+             (!('tags' in data) || (data.tags is list && data.tags.size() <= 15)) &&
+             (!('downloadCount' in data) || (data.downloadCount is number && data.downloadCount >= 0)) &&
+             data.uploadedAt is string && data.uploadedAt.size() <= 40;
+    }
+
+    // User profile documents
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow create: if isOwner(userId) && isValidId(userId) && isValidUser(incoming());
+      allow update: if isOwner(userId) && isValidId(userId) && isValidUser(incoming()) && incoming().diff(existing()).affectedKeys().hasOnly(['name', 'role']);
+    }
+
+    // User vault files
+    match /users/{userId}/files/{fileId} {
+      allow get: if isOwner(userId) && isValidId(userId) && isValidId(fileId);
+      allow list: if isOwner(userId) && isValidId(userId);
+      allow delete: if isOwner(userId) && isValidId(userId) && isValidId(fileId);
+      allow create: if isOwner(userId) && isValidId(userId) && isValidId(fileId) && isValidFile(incoming(), userId) && incoming().id == fileId;
+      allow update: if isOwner(userId) && isValidId(userId) && isValidId(fileId) && isValidFile(incoming(), userId) && incoming().id == existing().id && incoming().userId == existing().userId && incoming().diff(existing()).affectedKeys().hasOnly(['originalName', 'category', 'tags', 'notes', 'downloadCount']);
+    }
+  }
+}
